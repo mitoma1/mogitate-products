@@ -22,8 +22,8 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
 #使用技術(実行環境)
-PHP8.3.0
-Laravel8.83.27
+PHP7.4.9
+Laravel8.83.8
 MySQL8.0.26
 
 #URL
