@@ -36,9 +36,9 @@
                 @error('image') <p class="error-message">{{ $message }}</p> @enderror
             </div>
 
-            <!-- 季節 -->
-            <div class="form-group">
-                <label>季節 <span class="required">※複数選択可</span></label>
+            　　　<!-- 季節 -->
+            　　　<div class="form-group">
+                　　<label>季節 <span class="required">※複数選択可</span></label>
                 <div class="checkbox-group">
                     <label><input type="checkbox" name="seasons[]" value="春" {{ is_array(old('seasons')) && in_array('春', old('seasons')) ? 'checked' : '' }}> 春</label>
                     <label><input type="checkbox" name="seasons[]" value="夏" {{ is_array(old('seasons')) && in_array('夏', old('seasons')) ? 'checked' : '' }}> 夏</label>
