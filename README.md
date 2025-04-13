@@ -21,10 +21,16 @@ DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 
+## ER図
+
+![ER図](docs/erd.png)
+
+
 #使用技術(実行環境)
 PHP7.4.9
 Laravel8.83.8
 MySQL8.0.26
+
 
 #URL
 開発環境：http://localhost/
