@@ -17,7 +17,7 @@
             <form method="GET" action="{{ route('products.index') }}">
                 {{-- 商品名で検索 --}}
                 <div class="form-group mb-3">
-                    <label for="name" class="fw-bold fs-5">商品一覧</label>
+                    <label for="name" class="fw-bold fs-5">商品名で検索</label>
                     <input type="text" name="name" id="name" class="form-control rounded-pill" placeholder="商品名で検索" value="{{ request('name') }}">
                 </div>
 
@@ -48,7 +48,9 @@
                 <span class="badge bg-info text-dark">
                     {{ request('sort_by') === 'high_to_low' ? '価格が高い順' : '価格が安い順' }}
                     <!-- ×ボタンでソートを解除 -->
-                    <a href="{{ route('products.index', request()->except('sort_by', 'page')) }}" class="text-dark ms-2 text-decoration-none">&times;</a>
+                    <a href="{{ route('products.index', request()->except('sort_by', 'page')) }}" class="text-dark ms-2 text-decoration-none">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
                 </span>
             </div>
             @endif
@@ -56,13 +58,11 @@
             <!-- 商品カード -->
             <div class="row">
                 @foreach ($products as $product)
-
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 shadow-lg">
                         <a href="{{ route('products.show', $product->id) }}">
                             <!-- 商品画像 -->
                             <img src="{{ asset('storage/products/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
-
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
