@@ -79,12 +79,13 @@ class ProductController extends Controller
         // 新しい画像がアップロードされた場合
         if ($request->hasFile('image')) {
             // 古い画像があれば削除（任意）
-            if ($product->image_path && Storage::disk('public')->exists($product->image_path)) {
-                Storage::disk('public')->delete($product->image_path);
+            if ($product->image && Storage::disk('public')->exists($product->image)) {
+                Storage::disk('public')->delete($product->image);
             }
 
+            // 新しい画像を保存
             $path = $request->file('image')->store('products', 'public');
-            $data['image_path'] = $path;
+            $data['image'] = $path;  // 'image_path' ではなく 'image' カラムに保存
         }
 
         // JSONエンコード忘れずに
@@ -92,6 +93,7 @@ class ProductController extends Controller
             $data['season'] = json_encode($data['seasons']);
         }
 
+        // 更新
         $product->update($data);
 
         return redirect()->route('products.index')->with('success', '商品を更新しました');
@@ -105,6 +107,7 @@ class ProductController extends Controller
             Storage::disk('public')->delete($product->image_path);
         }
 
+        // 商品削除
         $product->delete();
 
         return redirect()->route('products.index')->with('success', '商品を削除しました');

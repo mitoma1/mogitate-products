@@ -61,7 +61,8 @@
                     <div class="card h-100">
                         <a href="{{ route('products.show', $product->id) }}">
                             <!-- 商品画像 -->
-                            <img src="{{ asset('storage/images/' . $product->image) }}" alt="{{ $product->name }}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;">
+                            <img src="{{ asset('storage/products/' . $product->image) }}" class="card-img-top" alt="{{ $product->name }}">
+
                         </a>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>

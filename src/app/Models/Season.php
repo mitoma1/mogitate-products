@@ -9,10 +9,8 @@ class Season extends Model
 {
     use HasFactory;
 
-    // もし名前が変更されている場合、テーブル名を指定する
-    // protected $table = 'seasons';
+    protected $fillable = ['name'];
 
-    // 商品との多対多のリレーション
     public function products()
     {
         return $this->belongsToMany(Product::class, 'product_season');
