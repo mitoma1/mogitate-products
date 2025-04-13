@@ -23,7 +23,7 @@ DB_PASSWORD=laravel_pass
 
 ## ER図
 
-![ER図](docs/erd.drawio)
+![ER図](src/docs/erd.png)
 
 
 #使用技術(実行環境)
